@@ -1,7 +1,8 @@
 import React from "react";
 import { MdMyLocation, MdOutlineLocationOn, MdWbSunny } from "react-icons/md";
 import SearchBox from "./SearchBox";
-type Props = {};
+//ESLint규칙을 위한 수정
+type Props = object;
 
 export default function Navbar({}: Props) {
   return (

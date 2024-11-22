@@ -4,7 +4,7 @@
 import Navbar from "@/components/Navbar"; // 네비게이션 바 컴포넌트 임포트
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Image from "next/image"; // Next.js의 최적화된 이미지 컴포넌트 임포트 (현재 미사용)
+// import Image from "next/image"; 
 
 // https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=c9f84443cfcfa927cc155002a2cdb685&cnt=2
 // API 날씨 데이터를 기반으로 만든 interface
@@ -108,7 +108,8 @@ export default function Home() {
       //element를 가운데 위치시키기
       <div className="flex items-center min-h-screen justify-center">
         {/* 로딩 문자 */}
-        <p className="animate-bounce text-5xl">"Loading..."</p>
+        {/* ESLint 규칙으로인한 {} */}
+        <p className="animate-bounce text-5xl">{'Loading...'}</p>
       </div>
     
   )
