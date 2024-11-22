@@ -1,11 +1,21 @@
+import { cn } from "@/utils/cn";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 
-type Props = {};
+type Props = {
+  className?: string
+  value: string
+  //<input>onChange 속성의 type
+  onChange:React.ChangeEventHandler<HTMLInputElement> | undefined
+  //<form>onSubmit 속성의 type
+  onSubmit:React.FormEventHandler<HTMLFormElement> | undefined
+};
 
-export default function SearchBox({}: Props) {
+export default function SearchBox(props: Props) {
   return (
-    <form className="flex relative items-center justify-center h-10">
+    <form onSubmit={props.onSubmit}
+    //cn(기본클래스, 결합될 클래스) 
+    className={cn("flex relative items-center justify-center h-10",props.className)}>
       {/* 
     검색 입력창:
     - px-4: 좌우 패딩 1rem
@@ -20,6 +30,8 @@ export default function SearchBox({}: Props) {
   */}
       <input
         type="text"
+        value={props.value}
+        onChange={props.onChange}
         placeholder="地域検索"
         className="px-4 py-2 w-[230px] border
         border-gray-300
