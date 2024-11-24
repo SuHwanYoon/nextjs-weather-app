@@ -40,7 +40,7 @@ export default function Navbar({}: Props) {
           <MdMyLocation className="text-2xl text-gray-400 hover:opacity-80 cursor-pointer" />
           <MdOutlineLocationOn className="text-3xl" />
           <p className="text-slate-900/80 text-sm">Seoul</p>
-          <div className="relative hidden md:flex">
+          <div >
             <SearchBox value={""} onChange={undefined} onSubmit={undefined} />
           </div>
         </section>
