@@ -100,7 +100,7 @@ export default function Home() {
   //   "https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=c9f84443cfcfa927cc155002a2cdb685&cnt=2"
   // ).then((res) => res.json()),
 
-  // console.log('WeatherResponse',data)
+  console.log('WeatherResponse',data)
 
   //API를 가져오는 로딩시에 함수
   if (isPending) 
@@ -117,7 +117,6 @@ export default function Home() {
   if (error)
     return (
       <div className="flex items-center min-h-screen justify-center">
-        {/* @ts-ignore */}
         <p className="text-red-400">{error.message}</p>
       </div>
     );
