@@ -116,7 +116,7 @@ export default function Home() {
   //API가 에러가 났을 경우
   if (error) return <p>Error: {error.message}</p>;
   return (
-    <div className="flex flex-col gap-4 bg-gray-100 min-h-screen">
+    <div className="flex flex-col gap-4 bg-gray-100 min-h-screen ">
       {/* 
       메인 컨테이너:
       - flex flex-col: 세로 방향 플렉스박스 레이아웃
