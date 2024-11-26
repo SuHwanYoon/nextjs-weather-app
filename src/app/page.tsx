@@ -1,9 +1,12 @@
 //client component
 'use client'
+import Container from "@/components/Container";
 // 메인 페이지 컴포넌트
 import Navbar from "@/components/Navbar"; // 네비게이션 바 컴포넌트 임포트
+import { convertTemp } from "@/utils/convertTemp";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { format, parseISO } from "date-fns";
 // import Image from "next/image"; 
 
 // https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=c9f84443cfcfa927cc155002a2cdb685&cnt=2
@@ -100,6 +103,9 @@ export default function Home() {
   //   "https://api.openweathermap.org/data/2.5/forecast?q=tokyo&appid=c9f84443cfcfa927cc155002a2cdb685&cnt=2"
   // ).then((res) => res.json()),
 
+  //API로 가져오는 WeatherResponse의 첫번째 WeatherData 리스트
+  const firstData = data?.list[0]
+
   console.log('WeatherResponse',data)
 
   //API를 가져오는 로딩시에 함수
@@ -130,6 +136,31 @@ export default function Home() {
       - min-h-screen: 최소 높이를 화면 전체 높이로 설정
     */}
       <Navbar />
+      <main className="px-3 max-w-7xl mx-auto flex flex-col gap-9 w-full pb-10 pt-4">
+          {/* today weather data */}
+          <section>
+            {/* 요일, 날짜 컨테이너 */}
+            <div>
+              <h2 className="flex gap-1 text-2xl items-end">
+                {/* data-fns를 사용한 요일 포맷팅 dt_txt값이 null, undified일경우 빈문자열을 전달*/}
+                <p>{format(parseISO(firstData?.dt_txt ?? ''), 'iiii')}</p>
+                <p className="text-lg">({format(parseISO(firstData?.dt_txt ?? ''), 'yyyy-MM-dd')})</p>
+              </h2>
+            </div>
+            {/* 온도 표시 컨테이너 */}
+            <Container className="gap-10 px-6 items-center">
+              <div className=" flex flex-col px-4">
+                {/* 온도변환 utils사용 */}
+                {convertTemp(firstData?.main.temp ?? 285.75)}°
+              </div>
+            </Container>
+
+          </section>
+          {/* 7days weather data */}
+          <section>
+
+          </section>
+      </main>
     </div>
   );
 }

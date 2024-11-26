@@ -26,7 +26,7 @@ export default function Navbar({}: Props) {
           - justify-center: 수평 중앙 정렬
           - gap-2: 요소들 사이 간격
         */}
-          <p className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             {/* 
             제목 텍스트:
             - text-gray-500: 회색 텍스트
@@ -35,12 +35,12 @@ export default function Navbar({}: Props) {
             <h2 className="text-gray-500 text-2xl">天気予報</h2>
             {/*해모양 아이콘 텍스트 크기 margin-top  */}
             <MdWbSunny className="text-3xl mt-1 text-yellow-300" />
-          </p>
+          </div>
           {/*현재위치, 위치, 검색상자 섹션  */}
           <section className="flex gap-2 items-center">
             <MdMyLocation className="text-2xl text-gray-400 hover:opacity-80 cursor-pointer" />
             <MdOutlineLocationOn className="text-3xl" />
-            <p className="text-slate-900/80 text-sm">Seoul</p>
+            <p className="text-slate-900/80 text-sm">Tokyo</p>
             <div className="relative hidden md:flex">
               <SearchBox value={""} onChange={undefined} onSubmit={undefined} />
             </div>
