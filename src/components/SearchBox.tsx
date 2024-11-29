@@ -2,6 +2,7 @@ import { cn } from "@/utils/cn";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 
+//SearchBox컴포넌트가 전달받는 Props 객체구성
 type Props = {
   className?: string
   value: string
